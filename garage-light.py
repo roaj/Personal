@@ -62,5 +62,16 @@ while True:
     elif distance <= 6:
         red_light()
 
+while True:
+    distance = get_distance()
+    time.sleep (0.05)
+
+    if distance >= 9 :
+        green_light()
+    elif 9 > distance > 6:
+        yellow_light()
+    elif distance <= 6:
+        red_light()
+
 
 
