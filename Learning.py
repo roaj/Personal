@@ -1,18 +1,34 @@
-# import sys
+# animals = ['brey', 'jorge', 'matt', 'santy']
+import time
+# print(animals[3])
 
-# print(sys.version)
+# for i in animals:
+#     print(i)
 
-# x = 43
-# # print('Hello {}'.format(x))
-# # print('Hello %d' %x) 
+# b = [5,5,10,30]
 
-x= 43
-y= 73
+# total = 0
+# for i in b:
+#     total = total + i
+# # print (total)
+# total = 0
+# for i in range (1,100):
+#     total = total + i
+    
+# # print (total)
+# total = 0
+# for i in range (1,6):
+#     if i % 2 == 0:
+#         total = total +1
+# print(total)
 
-if x < y :
-    print('x < y: x is {} and y is {}'.format(x,y))
-    y = 77
-    print('y = {}'.format(y))
-print('y = {}'.format(y))    
-print('something')
+# print(list(range(1,7)))
 
+count = 0 #total number of multiple of3,5
+
+for i in range(1,100):
+    if i % 3 == 0 or i % 5 == 0:
+        print('+1')
+        count = count + i
+  
+print(count)
