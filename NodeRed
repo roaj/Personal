@@ -1,0 +1,91 @@
+[
+    {
+        "id": "abf8fb4c.0a5d78",
+        "type": "tab",
+        "label": "La5",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "36228e94.1143a2",
+        "type": "inject",
+        "z": "abf8fb4c.0a5d78",
+        "name": "",
+        "topic": "X",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "d745190b.407118"
+            ]
+        ]
+    },
+    {
+        "id": "fe0edf5c.8a7e2",
+        "type": "ui_gauge",
+        "z": "abf8fb4c.0a5d78",
+        "name": "",
+        "group": "35ab9b63.62e6c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Degrees",
+        "format": "{{value}}",
+        "min": "180",
+        "max": "-180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d745190b.407118",
+        "type": "file in",
+        "z": "abf8fb4c.0a5d78",
+        "name": "",
+        "filename": "/home/debian/basics/headingDegrees.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "fe0edf5c.8a7e2"
+            ]
+        ]
+    },
+    {
+        "id": "35ab9b63.62e6c4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Heading Degrees",
+        "tab": "a6a4a21e.2a58a",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a6a4a21e.2a58a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Lab5",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
