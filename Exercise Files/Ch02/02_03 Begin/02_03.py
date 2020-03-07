@@ -9,6 +9,10 @@ ones = np.ones([150,200,3],'uint8') #
 cv2.imshow("ones",ones)
 print(ones[0,0,:])
 
+white = np.ones([150,200,3],'uint16')
+white *= (2**16-1)
+cv2.imshow("white",white)
+print(white[0,0,:])
 
 
 cv2.waitKey(0)
