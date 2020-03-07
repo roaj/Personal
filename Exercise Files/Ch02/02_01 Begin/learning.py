@@ -9,3 +9,6 @@ cv2.imshow("image",img) #show img in window called "image"
 #pause
 cv2.waitKey(0)#command to wait a specify a time to wait, if 0 then is infinity until a key is pressed
 
+#write image out to file
+cv2.imwrite("output.jpg",img)
+
