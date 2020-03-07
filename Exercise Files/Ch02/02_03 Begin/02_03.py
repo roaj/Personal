@@ -10,16 +10,16 @@ cv2.imshow("ones",ones)
 print(ones[0,0,:])
 
 white = np.ones([150,200,3],'uint16')
-white *= (2**16-1)
-cv2.imshow("white",white)
-print(white[0,0,:])
+white *= (2**16-1) #multiply every element on the array
+cv2.imshow("white",white) #make a window called white and put the picture white on it
+print(white[0,0,:]) #print the value of the pixel 
 
-color = ones.copy()
-color[:,:,:] = (255,0,0)
-cv2.imshow("color",color)
-print(color[0,0,:])
+color = ones.copy() #make a ccopy of line 12 
+color[:,:,:] = (255,0,0) # make every element blue , BGR order 
+cv2.imshow("color",color) 
+print(color[0,0,:]) 
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.waitKey(0) #wait until key is inputed 
+cv2.destroyAllWindows() #clean up, close every window
 
 #. <( wget -O - https://code.headmelted.com/installers/apt.sh )
