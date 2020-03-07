@@ -2,8 +2,7 @@ import numpy as np
 import cv2
 
 img = cv2.imread("opencv-logo.png",1) #1 - default color / #0 - black and white
-cv2.namedWindow("image",cv2.WINDOW_NORMAL)
-cv2.imshow("image",img) #show img in window called "image"
-#we have to tell the enviroment to take a second to display the window
-#pause
-cv2.waitKey(0)#command to wait a specify a time to wait, if 0 then is infinity until a key is pressed
+img.shape #telling us the # of rows , # of columns, # channels
+img.dtype #find data type of image uint8 = mac of 2^8= 256 in each pixel => range of values is from 0 to 255
+img[:,:,0] #values of the first channel
+img.size #find total number of pixels
