@@ -14,6 +14,10 @@ white *= (2**16-1)
 cv2.imshow("white",white)
 print(white[0,0,:])
 
+color = ones.copy()
+color[:,:,:] = (255,0,0)
+cv2.imshow("color",color)
+print(color[0,0,:])
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
