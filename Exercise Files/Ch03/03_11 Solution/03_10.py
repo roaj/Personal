@@ -15,9 +15,14 @@ blur = cv2.GaussianBlur(gray, (3,3),0)
 thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 205, 1)
 cv2.imshow("Binary",thresh)
 
+<<<<<<< HEAD
 #Lets get the contours 
 _, contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 print(len(contours)) #initially there is a lot because of the little areas becuase of the basic filtering
+=======
+contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+print(len(contours))
+>>>>>>> b52edb8daa1362d646f3466ba2478e7a524562ce
 
 #filter that image by doing the area. check all the contours and then just add to the 
 #filtered array the contours that are big enough 
