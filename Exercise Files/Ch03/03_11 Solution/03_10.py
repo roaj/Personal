@@ -24,7 +24,7 @@ print(len(contours)) #initially there is a lot because of the little areas becua
 #filtered array the contours that are big enough 
 filtered = []
 for c in contours:
-	if cv2.contourArea(c) < 1000:continue
+	if cv2.contourArea(c) < 4000:continue
 	filtered.append(c)
 
 #From 2054 we went to 4
