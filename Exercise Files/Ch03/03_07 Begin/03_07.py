@@ -12,8 +12,28 @@ img2 = img.copy()
 index = -1
 thickness = 4
 color = (255, 0, 255)
+#more info = https://www.learnopencv.com/find-center-of-blob-centroid-using-opencv-cpp-python/
+#We are going to get more information from contours
+objects = np.zeros([img.shape[0],img.shape[1],3],'uint8')
+for c in contours:
+    #[c] list of a single contour , -1 all contorus, color, -1 completely fill
+    cv2.drawContours(objects,[c],-1,color,-1) 
 
+    #get some information about our contours = 
+    # Area = asnwer is in pixel^2
+    area = cv2.contourArea(c)
+    # perimeter = true means the ark is a closed loop 
+    perimeter = cv2.arcLength(c,True)
+    #Calculate the Centroid
+    #first calculate the moment
+    M = cv2.moments(c)
+    #Calculate centroid centers
+    cx = int(M['m10']/M['m00']) #int () to cast the value we are about to create 
+    cx = int(M['m01']/M['m00'])
+    #Draw centroid
+    cv2.circle(objects,(cx,cy),4,(0,0,255),-1) # 4 for the radious of the pixels 
+    print("Area: {}, perimeter: {}".format(area,perimeter))
 
-
+cv2.imshow("contour",objects )
 cv2.waitKey(0)
 cv2.destroyAllWindows()
