@@ -14,15 +14,11 @@ hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 res, thresh = cv2. threshold(hsv[:,:,0],25,255,cv2.THRESH_BINARY_INV)
 cv2.imshow("thresh", thresh)
 #threshold did not work propely, it got part of the background and may look like one thing
-
-#Canny Segmentation 
-edges = cv2.Canny(img,100,70) #Given this Threshold
+edges = cv2.Canny(img,100,70)
 cv2.imshow("Canny",edges)
 
 final = cv2.bitwise_and(thresh,edges)
 cv2.imshow("Final",final)
-
-
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
