@@ -11,7 +11,7 @@ contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_S
 img2 = img.copy()
 index = -1
 thickness = 4
-color = (255, 0, 255)
+color = (0, 100, 255)
 #more info = https://www.learnopencv.com/find-center-of-blob-centroid-using-opencv-cpp-python/
 #We are going to get more information from contours
 objects = np.zeros([img.shape[0],img.shape[1],3],'uint8')
@@ -29,9 +29,9 @@ for c in contours:
     M = cv2.moments(c)
     #Calculate centroid centers
     cx = int(M['m10']/M['m00']) #int () to cast the value we are about to create 
-    cx = int(M['m01']/M['m00'])
+    cy = int(M['m01']/M['m00'])
     #Draw centroid
-    cv2.circle(objects,(cx,cy),4,(0,0,255),-1) # 4 for the radious of the pixels 
+    cv2.circle(objects,(cx,cy),4,(0,0,100),-1) # 4 for the radious of the pixels / radius of centroid indicator
     print("Area: {}, perimeter: {}".format(area,perimeter))
 
 cv2.imshow("contour",objects )
