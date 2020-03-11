@@ -17,16 +17,16 @@ cv2.imshow("hsv split", hsv_split)
 
 #apply threshold filter to the saturation channels
 #Everything on this channel that has a value of LESS THAN 40 WILL APPEAR AS WHITE
-ret, min_sat = cv2.threshold(s,40,244,cv2.THRESH_BINARY)
-cv2.imshow("Sat_Filter",min_sat
+ret, thresh_1 = cv2.threshold(s,40,244,cv2.THRESH_BINARY)
+cv2.imshow("Sat_Filter",thresh_1)
 #Do the same for the HUE CHANNEL
 #inverse of the normal order of the threshold
 #WILL MAKE VALUES FROM 0 TO 15 WHITE
-ret, max_hue = cv2.threshold(h,15,255,cv2.THRESH_BINARY_INV) 
-cv2.imshow("Hue Filter",max_hue)
+ret, thresh_2 = cv2.threshold(h,15,255,cv2.THRESH_BINARY_INV) 
+cv2.imshow("Hue Filter",thresh_2)
 
 #combine filters together
-final = cv2.bitwise_and(min_sat,max_hue)
+final = cv2.bitwise_and(thresh_1,thresh_2)
 cv2.imshow("Final",final)
 
 
