@@ -56,7 +56,7 @@ while(True):
         c = max(cnts,  key=cv2.contourArea)
         ((x,y),radius) = cv2.minEnclosingCircle(c)
 
-        radius = round(radius, 2)
+        radius = int(round(radius, 2))
 
         x = int(x)
         M = cv2.moments(c)
