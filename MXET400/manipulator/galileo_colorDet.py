@@ -7,8 +7,8 @@ import cv2
     #(480,640,3) RGB
 camera_input = 0    #define camera imput
 
-size_w = 240 #resize image width
-size_h = 160 #resize image height 
+size_w = 480 #resize image width
+size_h = 640 #resize image height 
 
 #    Color Range, described in HSV
 
