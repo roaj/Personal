@@ -16,7 +16,7 @@ filter = 'HSV'
 
 camera = cv2.VideoCapture(camera_input) #Define camera
 camera.set(3, size_w) #Overriding width of frame
-camera.set(4,size_h)  #Overriding height of fram
+camera.set(3, size_h)  #Overriding height of fram
 
 while(True):
 
