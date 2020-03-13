@@ -14,8 +14,8 @@ cv2.imshow("Blur",blur)
 #Erosion - turns white pixels into black pixels, 
 
 Kernel = np.ones((5,5),'uint8') #the thing that goes through every pixel
-dilate = cv2.dilate(image,Kernel,iterations=1) #each iteration will eat more
-erode = cv2.erode(image,Kernel, iterations=1)
+dilate = cv2.dilate(image,Kernel,iterations=5) #each iteration will eat more
+erode = cv2.erode(image,Kernel, iterations=5)
 
 cv2.imshow("dilate",dilate)
 cv2.imshow("erode",erode)
