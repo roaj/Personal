@@ -57,7 +57,7 @@ while(True):
 
 
     cv2.imshow("Image",image)
-    cv2.imshow("mask",mask)
+    cv2.imshow("mask",thresh)
     print(image.shape)
 
     ch = cv2.waitKey(1) #run every 1 milisecond / if 10 then would wait 10 miliseconds
