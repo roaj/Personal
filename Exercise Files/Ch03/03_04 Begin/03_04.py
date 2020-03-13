@@ -1,9 +1,9 @@
 import numpy as np
 import cv2
 
-img = cv2.imread('faces.jpg',1)
+image = cv2.imread('faces.jpg',1)
 
-hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) 
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) 
 #keeping all the oroginal pixels but just one channel h , s , v
 h = hsv[:,:,0]
 s = hsv[:,:,1]
