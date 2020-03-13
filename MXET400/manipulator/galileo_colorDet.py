@@ -7,8 +7,8 @@ import cv2
     #(480,640,3) RGB
 camera_input = 0    #define camera imput
 
-size_w = 240*2 #resize image width
-size_h = 160*2 #resize image height 
+size_w = 240#resize image width
+size_h = 160 #resize image height 
 
 #    Color Range, described in HSV
 
@@ -60,9 +60,10 @@ while(True):
         print("Radius = ",radius)
         x = int(x)
         M = cv2.moments(c)
-        center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])) 
-        if radius > 30:
-            cv2.circle(image,center,radius,(0,0,255),4)
+        cx = int(M['m10']/M['m00']) #int () to cast the value we are about to create 
+        cy = int(M['m01']/M['m00'])
+        
+        cv2.circle(image,(cx,cy),radius,(0,0,255),4)
         
 
 

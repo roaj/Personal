@@ -29,7 +29,7 @@ for c in contours:
     M = cv2.moments(c)
     #Calculate centroid centers
     cx = int(M['m10']/M['m00']) #int () to cast the value we are about to create 
-    cx = int(M['m01']/M['m00'])
+    cy = int(M['m01']/M['m00'])
     #Draw centroid
     cv2.circle(objects,(cx,cy),4,(0,0,255),-1) # 4 for the radious of the pixels 
     print("Area: {}, perimeter: {}".format(area,perimeter))
