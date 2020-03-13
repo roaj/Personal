@@ -26,8 +26,8 @@ v3_max = 255    # Maximum V value
 filter = 'HSV'
 
 camera = cv2.VideoCapture(camera_input) #Define camera
-camera.set(3, size_w) #Overriding width of frame
-camera.set(4, size_h)  #Overriding height of fram
+#camera.set(3, size_w) #Overriding width of frame
+#camera.set(4, size_h)  #Overriding height of fram
 x = 0  # will describe target location left to right
 y = 0  # will describe target location bottom to top
 radius = 0  # estimates the radius of the detected target
