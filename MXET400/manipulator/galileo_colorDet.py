@@ -35,9 +35,6 @@ radius = 0  # estimates the radius of the detected target
 while(True):
 
     ret,image = camera.read()       #Read frame calling it image
-    height, width, channels = image.shape
-
-
     if not ret:
         break
 
@@ -50,16 +47,28 @@ while(True):
 
     kernel = np.ones((5,5),np.uint8)                            # Set gaussian blur strength.
     mask = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)     # Apply gaussian blur
-    mask_2 = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
-    # cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]     # Find closed shapes in image
-    # center = None   # Create variable to store point
+    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]     # Find closed shapes in image
+    center = None   # Create variable to store point
+
+    if len(cnts) > 0:
+        c = max(cnts, Key=cv2.contourArea)
+        ((x,y),radius) = cv2.minEnclosingCircle(c)
+
+        radius = round(radius, 2)
+
+        x = int(x)
+        M = cv2.moments(c)
+        center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])) 
+        cv2.circle(image,center,radius,(0,0,255),4)
+        
 
 
     cv2.imshow("Image",image)
     cv2.imshow("Thresh",thresh)
     cv2.imshow("mask",mask)
-    cv2.imshow("mask_2",mask_2)
+    
     print(image.shape)
 
     ch = cv2.waitKey(1) #run every 1 milisecond / if 10 then would wait 10 miliseconds
