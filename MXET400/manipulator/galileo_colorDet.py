@@ -53,7 +53,7 @@ while(True):
     center = None   # Create variable to store point
 
     if len(cnts) > 0:
-        c = max(cnts, Key=cv2.contourArea)
+        c = max(cnts,  key=cv2.contourArea)
         ((x,y),radius) = cv2.minEnclosingCircle(c)
 
         radius = round(radius, 2)
