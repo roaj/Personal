@@ -13,7 +13,7 @@ size_h = 160 #resize image height
 #    Color Range, described in HSV
 
 v1_min = 10     # Minimum H value
-v2_min = 100    # Minimum S value
+v2_min = 150    # Minimum S value
 v3_min = 50    # Minimum V value
 
 v1_max = 25     # Maximum H value
