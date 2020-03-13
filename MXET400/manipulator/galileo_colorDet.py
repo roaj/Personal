@@ -66,8 +66,8 @@ while(True):
 
 
     cv2.imshow("Image",image)
-    cv2.imshow("Thresh",thresh)
-    cv2.imshow("mask",mask)
+    # cv2.imshow("Thresh",thresh)
+    # cv2.imshow("mask",mask)
     
     #print(image.shape)
 
