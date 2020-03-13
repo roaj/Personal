@@ -26,8 +26,8 @@ v3_max = 255    # Maximum V value
 filter = 'HSV'
 
 camera = cv2.VideoCapture(camera_input) #Define camera
-#camera.set(3, size_w) #Overriding width of frame
-#camera.set(4, size_h)  #Overriding height of fram
+camera.set(3, size_w) #Overriding width of frame
+camera.set(4, size_h)  #Overriding height of fram
 x = 0  # will describe target location left to right
 y = 0  # will describe target location bottom to top
 radius = 0  # estimates the radius of the detected target
@@ -57,7 +57,7 @@ while(True):
         ((x,y),radius) = cv2.minEnclosingCircle(c)
 
         radius = int(round(radius, 2))
-
+        print("Radius = ",radius)
         x = int(x)
         M = cv2.moments(c)
         center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])) 
@@ -69,7 +69,7 @@ while(True):
     cv2.imshow("Thresh",thresh)
     cv2.imshow("mask",mask)
     
-    print(image.shape)
+    #print(image.shape)
 
     ch = cv2.waitKey(1) #run every 1 milisecond / if 10 then would wait 10 miliseconds
     if ch & 0xFF == ord('q'): #if not 64 bibt pc then if ch == ord('q)
