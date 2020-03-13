@@ -61,7 +61,8 @@ while(True):
         x = int(x)
         M = cv2.moments(c)
         center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])) 
-        cv2.circle(image,center,radius,(0,0,255),4)
+        if radius < 30:
+            cv2.circle(image,center,radius,(0,0,255),4)
         
 
 
