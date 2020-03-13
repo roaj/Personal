@@ -16,7 +16,7 @@ v1_min = 10     # Minimum H value
 v2_min = 150    # Minimum S value
 v3_min = 50    # Minimum V value
 
-v1_max = 25     # Maximum H value
+v1_max = 20     # Maximum H value
 v2_max = 255     # Maximum S value
 v3_max = 255    # Maximum V value
 
