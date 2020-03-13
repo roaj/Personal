@@ -7,18 +7,21 @@ import cv2
     #(480,640,3) RGB
 camera_input = 0    #define camera imput
 
-size_w = 240#resize image width
+size_w = 240 #resize image width
 size_h = 160 #resize image height 
 
 #    Color Range, described in HSV
+# HSV Values for color Detection ([v1_min, v2_min, v3_min],[v1_max, v2_max, v3_max])
+
+
 
 v1_min = 10     # Minimum H value
 v2_min = 150    # Minimum S value
-v3_min = 50    # Minimum V value
+v3_min = 10   # Minimum V value
 
 v1_max = 20     # Maximum H value
 v2_max = 255     # Maximum S value
-v3_max = 255    # Maximum V value
+v3_max = 200    # Maximum V value
 
 
 #RGB or HSV
@@ -26,8 +29,8 @@ v3_max = 255    # Maximum V value
 filter = 'HSV'
 
 camera = cv2.VideoCapture(camera_input) #Define camera
-camera.set(3, size_w) #Overriding width of frame
-camera.set(4, size_h)  #Overriding height of fram
+#camera.set(3, size_w) #Overriding width of frame
+#camera.set(4, size_h)  #Overriding height of fram
 x = 0  # will describe target location left to right
 y = 0  # will describe target location bottom to top
 radius = 0  # estimates the radius of the detected target
@@ -42,7 +45,7 @@ while(True):
         frame_to_thresh = image.copy()
     else:
         frame_to_thresh = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)    # Otherwise continue reading in HSV
-
+    cv2.imshow("HSV",frame_to_thresh)
     thresh = cv2.inRange(frame_to_thresh, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))   # Find all pixels in color range
 
     kernel = np.ones((5,5),np.uint8)                            # Set gaussian blur strength.
