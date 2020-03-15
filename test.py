@@ -1,6 +1,8 @@
+
+# Import libraries
 import cv2
 import numpy as np
-
+#fucking nothing
 def nothing(x):
     pass
 
@@ -16,8 +18,6 @@ size_h = 160    #resize image height
 
 #Create Tab for the sliders
 cv2.namedWindow('image')
-#Create a Black image
-img = np.zeros((300,512,3), np.uint8)
 
 # create trackbars for color change
 cv2.createTrackbar('H_min','image',0,255,nothing)
@@ -32,10 +32,9 @@ cv2.createTrackbar('V_max','image',0,255,nothing)
 #     mask = cv2.inRange(img, lowerb, upperb)
 #     output = cv2.bitwise_and(img,img,mask=mask)
 #     return output
+def trackbar():
 
-while(True):
-    cv2.imshow('image',img)
-    
+    #cv2.imshow('image',img)
     # get current positions of HSV_min and HSV_max trackbars
     H_min = cv2.getTrackbarPos('H_min','image')
     S_min = cv2.getTrackbarPos('S_min','image')
@@ -60,8 +59,26 @@ while(True):
     thresh = cv2.inRange(frame_to_thresh,lowerb,upperb)
     cv2.imshow("thresh", thresh)
 
+def manual_input(H_min,S_min,V_min,H_max,S_max,V_max):
+
+    lowerb = np.array([H_min, S_min, V_min], dtype="uint8")
+    upperb = np.array([H_max, S_max, V_max], dtype="uint8")
+
+    #record frame from camera
+    ret, frame = cam.read()
+    #make the frame from BGR to HSV
+    frame_to_thresh = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    #threshold
+    thresh = cv2.inRange(frame_to_thresh,lowerb,upperb)
+    cv2.imshow("thresh", thresh)
 
 
+
+while(True):
+    
+    #manual_input(172,124,52,186,204,249) #MIT hat
+    trackbar()
+    
     #Exit pressing 'q'
     ch = cv2.waitKey(1) #run every 1 milisecond / if 10 then would wait 10 miliseconds
     if ch & 0xFF == ord('q'): #if not 64 bibt pc then if ch == ord('q)
