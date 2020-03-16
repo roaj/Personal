@@ -52,27 +52,28 @@ while(True):
     #Perform Threshold 
     #Orange
 
-    orange_lowerb , orange_upperb = bound_giver(orange_hsv.h_min,orange_hsv.s_min,orange_hsv.v_min,orange_hsv.h_max,orange_hsv.s_max,orange_hsv.v_max)
-    thresh_orange = cv2.inRange(frame_to_thresh, orange_lowerb, orange_upperb)
-    cv2.imshow("Orange_Thresh", thresh_orange)
+    # orange_lowerb , orange_upperb = bound_giver(orange_hsv.h_min,orange_hsv.s_min,orange_hsv.v_min,orange_hsv.h_max,orange_hsv.s_max,orange_hsv.v_max)
+    # thresh_orange = cv2.inRange(frame_to_thresh, orange_lowerb, orange_upperb)
+    # cv2.imshow("Orange_Thresh", thresh_orange)
 
-    #Blue
+    # #Blue
 
     blue_lowerb , blue_upperb = bound_giver(blue_hsv.h_min, blue_hsv.s_min, blue_hsv.v_min, blue_hsv.h_max, blue_hsv.s_max, blue_hsv.v_max)
     thresh_blue = cv2.inRange(frame_to_thresh, blue_lowerb, blue_upperb)
     cv2.imshow("Orange_Thresh", thresh_blue)
 
-    #Red
+    # #Red
 
-    red_lowerb , red_upperb = bound_giver(red_hsv.h_min, red_hsv.s_min, red_hsv.v_min, red_hsv.h_max, red_hsv.s_max, red_hsv.v_max)
-    thresh_red = cv2.inRange(frame_to_thresh, red_lowerb, red_upperb)
-    cv2.imshow("red_Thresh", thresh_red)
+    # red_lowerb , red_upperb = bound_giver(red_hsv.h_min, red_hsv.s_min, red_hsv.v_min, red_hsv.h_max, red_hsv.s_max, red_hsv.v_max)
+    # thresh_red = cv2.inRange(frame_to_thresh, red_lowerb, red_upperb)
+    # cv2.imshow("red_Thresh", thresh_red)
     
     #green
 
-    green_lowerb , green_upperb = bound_giver(green_hsv.h_min, green_hsv.s_min, green_hsv.v_min, green_hsv.h_max, green_hsv.s_max, green_hsv.v_max)
-    thresh_green = cv2.inRange(frame_to_thresh, green_lowerb, green_upperb)
-    cv2.imshow("green_Thresh", thresh_green)
+    # green_lowerb , green_upperb = bound_giver(green_hsv.h_min, green_hsv.s_min, green_hsv.v_min, green_hsv.h_max, green_hsv.s_max, green_hsv.v_max)
+    # thresh_green = cv2.inRange(frame_to_thresh, green_lowerb, green_upperb)
+    # cv2.imshow("green_Thresh", thresh_green)
+
 
 
     ch = cv2.waitKey(1)
