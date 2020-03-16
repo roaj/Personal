@@ -7,11 +7,6 @@ import cv2
 
 camera_input = 0        #define camera
 
-#Resize parameter
-
-size_w = 240 
-size_h = 160 
-
 #Color Range, described in HSV
 
 class hsv:
@@ -32,6 +27,18 @@ blue_hsv = hsv(95,50,69,137,255,255)
 lower = 0 
 upper = 0 
 
+
+def biggestContourI(contours):
+    maxVal = 0
+    maxI = None
+    for i in range(0, len(contours) - 1):
+        if len(contours[i]) > maxVal:
+            cs = contours[i]
+            maxVal = len(contours[i])
+            maxI = i
+    return maxI
+
+
 def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
         lowerb = np.array([H_min, S_min, V_min], dtype="uint8")
         upperb = np.array([H_max, S_max, V_max], dtype="uint8")
@@ -41,7 +48,7 @@ while(True):
     
 
     #Camera input
-    cam = cv2.VideoCapture(camera_input)        #Setting camera to record video
+    cam = cv2.VideoCapture(1)        #Setting camera to record video
 
     #read frame
     ret, raw_frame = cam.read()
@@ -60,10 +67,18 @@ while(True):
 
     blue_lowerb , blue_upperb = bound_giver(blue_hsv.h_min, blue_hsv.s_min, blue_hsv.v_min, blue_hsv.h_max, blue_hsv.s_max, blue_hsv.v_max)
     thresh_blue = cv2.inRange(frame_to_thresh, blue_lowerb, blue_upperb)
-    Kernel = np.ones((5,5),'uint8')
-    dilate = cv2.dilate(thresh_blue, Kernel, iterations=1)
-    cv2.imshow("Blue_thresh_dilate", dilate)
-    cv2.imshow("Blue_Thresh", thresh_blue)
+    # Kernel = np.ones((5,5),'uint8')
+    # dilate = cv2.dilate(thresh_blue, Kernel, iterations=1)
+
+    contours, hierarchy = cv2.findContours(thresh_blue,cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  
+    bc = biggestContourI(contours)
+    cv2.drawContours(raw_frame, contours, bc, (0,255,0), 3)
+
+    cv2.imshow("Blue_thresh_dilate", thresh_blue)
+    cv2.imshow("Biggest_Contour", raw_frame)
+
+
+    #cv2.imshow("Blue_Thresh", thresh_blue)
     
 
     # #Red
