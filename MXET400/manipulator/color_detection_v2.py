@@ -1,5 +1,6 @@
 #Import necessary libraries
 import cv2
+import time
 import numpy as np
 
 #make class for handling hsv
@@ -40,10 +41,12 @@ def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
         upperb = np.array([H_max, S_max, V_max], dtype="uint8")
         return lowerb, upperb
 
-#use usb camera
-cam = cv2.VideoCapture(1)
 
-while (True):
+
+def color_detection():
+
+    #use usb camera
+    cam = cv2.VideoCapture(1)
 
     red_hsv.flag = 0
     green_hsv.flag = 0 
@@ -125,9 +128,11 @@ while (True):
 
 
     if red_hsv.flag == 1:
-        print("Blue golf ball detected")
+        print("Red golf ball detected")
+        #return red_hsv.flag
     elif green_hsv.flag == 1:
         print("Green golf ball detected")
+        #return green_hsv.flag
     elif orange_hsv.flag == 1:
         print("Orange golf ball detected")
     elif blue_hsv.flag == 1:
@@ -139,7 +144,17 @@ while (True):
     
     #cv2.imshow('my webcam', img)
 
-    if cv2.waitKey(1) == 27:
-        break
+
+print(green_hsv.flag)
+color_detection() #update Flag of color
+print(green_hsv.flag)
+time.sleep(3)
+color_detection()
+print(green_hsv.flag)
+time.sleep(3)
+color_detection()
+print(green_hsv.flag)
+
+
 
 cv2.destroyAllWindows()
