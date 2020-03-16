@@ -60,7 +60,11 @@ while(True):
 
     blue_lowerb , blue_upperb = bound_giver(blue_hsv.h_min, blue_hsv.s_min, blue_hsv.v_min, blue_hsv.h_max, blue_hsv.s_max, blue_hsv.v_max)
     thresh_blue = cv2.inRange(frame_to_thresh, blue_lowerb, blue_upperb)
-    cv2.imshow("Orange_Thresh", thresh_blue)
+    Kernel = np.ones((5,5),'uint8')
+    dilate = cv2.dilate(thresh_blue, Kernel, iterations=1)
+    cv2.imshow("Blue_thresh_dilate", dilate)
+    cv2.imshow("Blue_Thresh", thresh_blue)
+    
 
     # #Red
 
@@ -81,12 +85,6 @@ while(True):
         break
 cv2.destroyAllWindows()
 
-
-
-
-
-    # lowerb,upperb = second(green_hsv)
-    # print("lower = ",lowerb, "upper = ",upperb)
 
 
 
