@@ -125,7 +125,7 @@ def color_detection():
             green_hsv.flag = 1
             cv2.drawContours(img,contours_green, bc, (0,255,0), 3)
 
-
+    #Check FLAGS
 
     if red_hsv.flag == 1:
         print("Red golf ball detected")
@@ -141,20 +141,13 @@ def color_detection():
         print("no golf ball detected")
 
 
+def move_servo():
     
-    #cv2.imshow('my webcam', img)
 
 
-print(green_hsv.flag)
 color_detection() #update Flag of color
-print(green_hsv.flag)
-time.sleep(3)
-color_detection()
-print(green_hsv.flag)
-time.sleep(3)
-color_detection()
-print(green_hsv.flag)
 
 
 
-cv2.destroyAllWindows()
+
+#cv2.destroyAllWindows()
