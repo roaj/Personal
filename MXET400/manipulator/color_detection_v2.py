@@ -46,7 +46,7 @@ def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
 def color_detection():
 
     #use usb camera
-    cam = cv2.VideoCapture(1)
+    cam = cv2.VideoCapture(0)
 
     red_hsv.flag = 0
     green_hsv.flag = 0 
@@ -108,7 +108,7 @@ def color_detection():
     #get lower and upper boundary 
     green_lowerb , green_upperb = bound_giver(green_hsv.h_min, green_hsv.s_min, green_hsv.v_min, green_hsv.h_max, green_hsv.s_max, green_hsv.v_max)
     #basic Threshold
-    #frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_green = cv2.inRange(frame_to_thresh, green_lowerb, green_upperb)
     #Contours
     contours_green, hierarchy = cv2.findContours(thresh_green, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -125,6 +125,28 @@ def color_detection():
             green_hsv.flag = 1
             cv2.drawContours(img,contours_green, bc, (0,255,0), 3)
 
+    #ORANGE
+
+    #get lower and upper boundary 
+    orange_lowerb , orange_upperb = bound_giver(orange_hsv.h_min, orange_hsv.s_min, orange_hsv.v_min, orange_hsv.h_max, orange_hsv.s_max, orange_hsv.v_max)
+    #basic Threshold
+    frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    thresh_orange = cv2.inRange(frame_to_thresh, orange_lowerb, orange_upperb)
+    #Contours
+    contours_orange, hierarchy = cv2.findContours(thresh_orange, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    #find the biggest contour / returns the index
+    bc = biggestContourI(contours_orange)
+    #when no contour found the return value is None and fucks up the program soooo..
+    if bc == None:
+        pass
+    elif bc >= 0:
+            #find Area of biggest contour
+        big_contour_area = cv2.contourArea(contours_orange[bc])
+        if big_contour_area > 100000:
+            #print ("Item Area = {}".format(big_contour_area))
+            orange_hsv.flag = 1
+            cv2.drawContours(img,contours_orange, bc, (0,255,0), 3)
+    #
     #Check FLAGS
 
     if red_hsv.flag == 1:
@@ -139,10 +161,11 @@ def color_detection():
         print("Blue golf ball detected")
     else:
         print("no golf ball detected")
+    
+
 
 
 def move_servo():
-    
 
 
 color_detection() #update Flag of color
