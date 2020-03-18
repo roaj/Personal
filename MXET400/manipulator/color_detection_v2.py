@@ -49,7 +49,7 @@ def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
 def color_detection():
 
     #use usb camera
-    cam = cv2.VideoCapture(1)
+    cam = cv2.VideoCapture(0)
 
     red_hsv.flag = 0
     green_hsv.flag = 0 
@@ -181,3 +181,5 @@ print(green_hsv.flag)
 time.sleep(2)
 color_detection()
 print(green_hsv.flag)
+
+cv2.destroyAllWindows()
