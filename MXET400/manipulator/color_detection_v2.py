@@ -20,6 +20,9 @@ green_hsv = hsv(40,50,65,79,205,255,0)
 orange_hsv = hsv(0,144,152,16,226,255,0)
 blue_hsv = hsv(95,50,69,137,255,255,0)
 
+#gipper flag
+gripper_flag = 0 #begin open 
+
 
 def nothing(n):
     pass
@@ -46,7 +49,7 @@ def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
 def color_detection():
 
     #use usb camera
-    cam = cv2.VideoCapture(0)
+    cam = cv2.VideoCapture(1)
 
     red_hsv.flag = 0
     green_hsv.flag = 0 
@@ -166,11 +169,15 @@ def color_detection():
 
 
 def move_servo():
+    pass
 
 
+
+print(green_hsv.flag)
+time.sleep(3)
+print("going now")
 color_detection() #update Flag of color
-
-
-
-
-#cv2.destroyAllWindows()
+print(green_hsv.flag)
+time.sleep(2)
+color_detection()
+print(green_hsv.flag)
