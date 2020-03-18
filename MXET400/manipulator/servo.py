@@ -8,7 +8,7 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 #pin 11 as output
-GPIO.setup(11,GPIO_OUT)
+GPIO.setup(11,GPIO.OUT)
 
 #pin 11 and 50 the pwm frequency
 servo_1 = GPIO.PWM(11,50) #PIN 11 , 50 HZ
