@@ -17,10 +17,10 @@ servo_1 = GPIO.PWM(11,50) #PIN 11 , 50 HZ
 servo_1.start(0)
 
 
-def gripper_servo(servo_angle):
+def gripper_servo(gripper_flag,servo_angle=90):
 
     angle = float(servo_angle)
-    servo_1.ChangeDutyCycle(2+(angle/18))
+    servo_1.ChangeDutyCycle(2.5+(angle/18))
     time.sleep(0.5)
     servo_1.ChangeDutyCycle(0)
 
