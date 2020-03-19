@@ -51,7 +51,7 @@ def bound_giver(H_min,S_min,V_min,H_max,S_max,V_max):
 def color_detection():
 
     #use usb camera
-    cam = cv2.VideoCapture(1)
+    cam = cv2.VideoCapture(0)
 
     cam.set(3, size_w)                       # Set width of images that will be retrived from camera
     cam.set(4, size_h)                       # Set height of images that will be retrived from camera
@@ -72,7 +72,7 @@ def color_detection():
     frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_red = cv2.inRange(frame_to_thresh, red_lowerb, red_upperb)
     #Contours
-    _, contours_red, _ = cv2.findContours(thresh_red, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours_red, _ = cv2.findContours(thresh_red, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     #find the biggest contour / returns the index
     bc = biggestContourI(contours_red)
     #when no contour found the return value is None and fucks up the program soooo..
@@ -95,7 +95,7 @@ def color_detection():
     frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_blue = cv2.inRange(frame_to_thresh, blue_lowerb, blue_upperb)
     #Contours
-    _, contours_blue, _ = cv2.findContours(thresh_blue, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours_blue, _ = cv2.findContours(thresh_blue, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     #find the biggest contour / returns the index
     bc = biggestContourI(contours_blue)
     #when no contour found the return value is None and fucks up the program soooo..
@@ -119,7 +119,7 @@ def color_detection():
     frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_green = cv2.inRange(frame_to_thresh, green_lowerb, green_upperb)
     #Contours
-    _, contours_green,_ = cv2.findContours(thresh_green, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours_green,_ = cv2.findContours(thresh_green, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     #find the biggest contour / returns the index
     bc = biggestContourI(contours_green)
     #when no contour found the return value is None and fucks up the program soooo..
@@ -141,7 +141,7 @@ def color_detection():
     frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_orange = cv2.inRange(frame_to_thresh, orange_lowerb, orange_upperb)
     #Contours
-    _, contours_orange,_ = cv2.findContours(thresh_orange, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours_orange,_ = cv2.findContours(thresh_orange, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     #find the biggest contour / returns the index
     bc = biggestContourI(contours_orange)
     #when no contour found the return value is None and fucks up the program soooo..
@@ -179,11 +179,11 @@ def move_servo():
 
 
 print(green_hsv.flag)
-time.sleep(3)
+time.sleep(1)
 print("going now")
 color_detection() #update Flag of color
 print(green_hsv.flag)
-time.sleep(2)
+time.sleep(1)
 color_detection()
 print(green_hsv.flag)
 
