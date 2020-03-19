@@ -23,6 +23,8 @@ blue_hsv = hsv(95,50,69,137,255,255,0)
 #gipper flag
 gripper_flag = 0 #begin open 
 
+size_w  = 240   # Resized image width. This is the image width in pixels.
+size_h = 160	# Resized image height. This is the image height in pixels.
 
 def nothing(n):
     pass
@@ -50,6 +52,9 @@ def color_detection():
 
     #use usb camera
     cam = cv2.VideoCapture(0)
+
+    cam.set(3, size_w)                       # Set width of images that will be retrived from camera
+    cam.set(4, size_h)                       # Set height of images that will be retrived from camera
 
     red_hsv.flag = 0
     green_hsv.flag = 0 
