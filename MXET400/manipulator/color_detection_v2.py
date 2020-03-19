@@ -72,7 +72,7 @@ def color_detection():
     frame_to_thresh = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     thresh_red = cv2.inRange(frame_to_thresh, red_lowerb, red_upperb)
     #Contours
-    contours_red, hierarchy = cv2.findContours(thresh_red, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    _, contours_red, hierarchy = cv2.findContours(thresh_red, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     #find the biggest contour / returns the index
     bc = biggestContourI(contours_red)
     #when no contour found the return value is None and fucks up the program soooo..
