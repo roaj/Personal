@@ -8,7 +8,7 @@ def nothing(x):
 
 #setting up camera
 #img = np.zeros((300,512,3), np.uint8)
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(1)
 size_w = 240    #resize image width
 size_h = 160    #resize image height 
 
