@@ -8,7 +8,7 @@ lookup = hebi.Lookup()
 # Wait 2 seconds for the module list to populate
 sleep(2.0)
 
-family_name = "Arm1"  //
+family_name = "Arm1"
 module_name = "Shoulder"
 
 group = lookup.get_group_from_names([family_name], [module_name])
@@ -19,3 +19,4 @@ if group is None:
   exit(1)
 
 print('Created group from module {0} | {1}.'.format(family_name, module_name))
+print(group)
