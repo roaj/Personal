@@ -1,0 +1,484 @@
+[
+    {
+        "id": "bc0f3923.77c068",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "89b11741.2c87e8",
+        "type": "file in",
+        "z": "bc0f3923.77c068",
+        "name": "battery_v",
+        "filename": "/tmp/battery_v.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "3582a483.9a801c"
+            ]
+        ]
+    },
+    {
+        "id": "82c2c674.f1cad8",
+        "type": "inject",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "89b11741.2c87e8"
+            ]
+        ]
+    },
+    {
+        "id": "3582a483.9a801c",
+        "type": "mqtt out",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/batt_v",
+        "qos": "2",
+        "retain": "false",
+        "broker": "609936ea.985468",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a0a05746.0fd5a8",
+        "type": "ui_slider",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "label": "Servo Position",
+        "tooltip": "",
+        "group": "5133dd64.fc10b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "-1.5",
+        "max": "1.5",
+        "step": "0.1",
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "35731898.d23238"
+            ]
+        ]
+    },
+    {
+        "id": "2801dbe4.3cef94",
+        "type": "ui_text",
+        "z": "bc0f3923.77c068",
+        "group": "5133dd64.fc10b4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1090,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6ef2832f.ec817c",
+        "type": "file",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "filename": "/tmp/servo_pos.txt",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 1130,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1ef0ac5.eafb08",
+        "type": "mqtt in",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/batt_v",
+        "qos": "2",
+        "broker": "609936ea.985468",
+        "x": 880,
+        "y": 200,
+        "wires": [
+            [
+                "f2a34a0.2825cb8"
+            ]
+        ]
+    },
+    {
+        "id": "f2a34a0.2825cb8",
+        "type": "ui_gauge",
+        "z": "bc0f3923.77c068",
+        "name": "battery_v_gauge",
+        "group": "5133dd64.fc10b4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "13",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "35731898.d23238",
+        "type": "mqtt out",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/servo1_pos",
+        "qos": "2",
+        "retain": "false",
+        "broker": "609936ea.985468",
+        "x": 500,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e5a1d60e.c7cdd8",
+        "type": "mqtt in",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/servo1_pos",
+        "qos": "2",
+        "broker": "609936ea.985468",
+        "x": 890,
+        "y": 440,
+        "wires": [
+            [
+                "6ef2832f.ec817c",
+                "2801dbe4.3cef94"
+            ]
+        ]
+    },
+    {
+        "id": "147b1d03.fb7a33",
+        "type": "file in",
+        "z": "bc0f3923.77c068",
+        "name": "temp",
+        "filename": "/tmp/bmp_temp.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "e210183e.a9ad98"
+            ]
+        ]
+    },
+    {
+        "id": "e92ea576.8964a8",
+        "type": "inject",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "147b1d03.fb7a33"
+            ]
+        ]
+    },
+    {
+        "id": "e210183e.a9ad98",
+        "type": "mqtt out",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/temp",
+        "qos": "2",
+        "retain": "false",
+        "broker": "609936ea.985468",
+        "x": 520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a1fe9755.de60d8",
+        "type": "mqtt in",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/temp",
+        "qos": "2",
+        "broker": "609936ea.985468",
+        "x": 870,
+        "y": 260,
+        "wires": [
+            [
+                "d8c478a0.be9908"
+            ]
+        ]
+    },
+    {
+        "id": "d8c478a0.be9908",
+        "type": "ui_gauge",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "group": "5133dd64.fc10b4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1090,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "3b03688b.090bf8",
+        "type": "file in",
+        "z": "bc0f3923.77c068",
+        "name": "rfid_sn",
+        "filename": "/tmp/rfid_sn.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "f8170149.a4161"
+            ]
+        ]
+    },
+    {
+        "id": "67da513e.e47c3",
+        "type": "inject",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "3b03688b.090bf8"
+            ]
+        ]
+    },
+    {
+        "id": "f8170149.a4161",
+        "type": "mqtt out",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/rfid_sn",
+        "qos": "2",
+        "retain": "false",
+        "broker": "609936ea.985468",
+        "x": 520,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "509da99f.50ceb8",
+        "type": "mqtt in",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/rfid_sn",
+        "qos": "2",
+        "broker": "609936ea.985468",
+        "x": 880,
+        "y": 320,
+        "wires": [
+            [
+                "c5317547.e4e398"
+            ]
+        ]
+    },
+    {
+        "id": "c398f6e2.e40468",
+        "type": "file in",
+        "z": "bc0f3923.77c068",
+        "name": "temp",
+        "filename": "/tmp/location.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "52032381.8a7a1c"
+            ]
+        ]
+    },
+    {
+        "id": "51f5a2e1.2522dc",
+        "type": "inject",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "c398f6e2.e40468"
+            ]
+        ]
+    },
+    {
+        "id": "52032381.8a7a1c",
+        "type": "mqtt out",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/location",
+        "qos": "2",
+        "retain": "false",
+        "broker": "609936ea.985468",
+        "x": 520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e100b5c6.0b69d8",
+        "type": "mqtt in",
+        "z": "bc0f3923.77c068",
+        "name": "",
+        "topic": "scuttle/fleet/09/location",
+        "qos": "2",
+        "broker": "609936ea.985468",
+        "x": 880,
+        "y": 380,
+        "wires": [
+            [
+                "dfb84643.a72be8"
+            ]
+        ]
+    },
+    {
+        "id": "dfb84643.a72be8",
+        "type": "ui_text",
+        "z": "bc0f3923.77c068",
+        "group": "5133dd64.fc10b4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Location:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1080,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c5317547.e4e398",
+        "type": "ui_text",
+        "z": "bc0f3923.77c068",
+        "group": "5133dd64.fc10b4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RFID S/N:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1090,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "609936ea.985468",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "5133dd64.fc10b4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "dbc97a53.008d28",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dbc97a53.008d28",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
