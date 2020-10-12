@@ -1,0 +1,354 @@
+[
+    {
+        "id": "d5f5b795.c17fd8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ec3e078f.129e88",
+        "type": "inject",
+        "z": "d5f5b795.c17fd8",
+        "name": "",
+        "repeat": "0.2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "fb244f73.d2135",
+                "c9a4619.5b082a",
+                "87ff8643.86a728",
+                "2595a011.b5894",
+                "ef62f747.18db18",
+                "1bbbcfd5.b37c4"
+            ]
+        ]
+    },
+    {
+        "id": "fb244f73.d2135",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "pdl",
+        "filename": "/tmp/pdl.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "28af5057.1dc55"
+            ]
+        ]
+    },
+    {
+        "id": "c9a4619.5b082a",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "pdr",
+        "filename": "/tmp/pdr.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "b0d59ced.791a3"
+            ]
+        ]
+    },
+    {
+        "id": "87ff8643.86a728",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "xdot",
+        "filename": "/tmp/xdot.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "b94a79fc.347598"
+            ]
+        ]
+    },
+    {
+        "id": "2595a011.b5894",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "tdot",
+        "filename": "/tmp/tdot.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "3d18db92.b40914"
+            ]
+        ]
+    },
+    {
+        "id": "28af5057.1dc55",
+        "type": "ui_gauge",
+        "z": "d5f5b795.c17fd8",
+        "name": "pdl",
+        "group": "3015dcbd.a28704",
+        "order": 5,
+        "width": 4,
+        "height": 3,
+        "gtype": "wave",
+        "title": "pdl",
+        "label": "m/s^2",
+        "format": "{{value}}",
+        "min": "-5",
+        "max": "5",
+        "colors": [
+            "#500000",
+            "#500000",
+            "#500000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 410,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b0d59ced.791a3",
+        "type": "ui_gauge",
+        "z": "d5f5b795.c17fd8",
+        "name": "pdr",
+        "group": "3015dcbd.a28704",
+        "order": 3,
+        "width": 4,
+        "height": 3,
+        "gtype": "wave",
+        "title": "pdr",
+        "label": "m/s^2",
+        "format": "{{value}}",
+        "min": "-5",
+        "max": "5",
+        "colors": [
+            "#500000",
+            "#500000",
+            "#500000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 430,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b94a79fc.347598",
+        "type": "ui_gauge",
+        "z": "d5f5b795.c17fd8",
+        "name": "xdot",
+        "group": "1ce3e61f.3af44a",
+        "order": 5,
+        "width": 4,
+        "height": 3,
+        "gtype": "wave",
+        "title": "xdot",
+        "label": "m/s^2",
+        "format": "{{value}}",
+        "min": "-5",
+        "max": "5",
+        "colors": [
+            "#500000",
+            "#500000",
+            "#500000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 450,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3d18db92.b40914",
+        "type": "ui_gauge",
+        "z": "d5f5b795.c17fd8",
+        "name": "tdot",
+        "group": "1ce3e61f.3af44a",
+        "order": 6,
+        "width": 4,
+        "height": 3,
+        "gtype": "wave",
+        "title": "tdot",
+        "label": "m/s^2",
+        "format": "{{value}}",
+        "min": "-5",
+        "max": "5",
+        "colors": [
+            "#500000",
+            "#500000",
+            "#500000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 470,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "283bbd1b.975162",
+        "type": "ui_text",
+        "z": "d5f5b795.c17fd8",
+        "group": "3015dcbd.a28704",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "WHEEL SPEED ",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 420,
+        "y": 520,
+        "wires": [],
+        "info": "payload {\n  font-size: 150px;\n}"
+    },
+    {
+        "id": "c23f04a0.819898",
+        "type": "ui_text",
+        "z": "d5f5b795.c17fd8",
+        "group": "1ce3e61f.3af44a",
+        "order": 11,
+        "width": 8,
+        "height": 2,
+        "name": "",
+        "label": "Heading ",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 540,
+        "y": 320,
+        "wires": [],
+        "info": "\\"
+    },
+    {
+        "id": "ef62f747.18db18",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "HeadingWord",
+        "filename": "/tmp/headingWord.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "c23f04a0.819898"
+            ]
+        ]
+    },
+    {
+        "id": "59e4e18.e5c0f2",
+        "type": "ui_text",
+        "z": "d5f5b795.c17fd8",
+        "group": "1ce3e61f.3af44a",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "SCUTTLE",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 410,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1bbbcfd5.b37c4",
+        "type": "file in",
+        "z": "d5f5b795.c17fd8",
+        "name": "",
+        "filename": "/tmp/vjack.txt",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "f511a6de.f0fe48"
+            ]
+        ]
+    },
+    {
+        "id": "f511a6de.f0fe48",
+        "type": "ui_gauge",
+        "z": "d5f5b795.c17fd8",
+        "name": "",
+        "group": "1ce3e61f.3af44a",
+        "order": 7,
+        "width": 5,
+        "height": 5,
+        "gtype": "wave",
+        "title": "Batery Level",
+        "label": "V",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 570,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3015dcbd.a28704",
+        "type": "ui_group",
+        "z": "",
+        "name": "WHEELS",
+        "tab": "e46ad525.d27528",
+        "order": 2,
+        "disp": false,
+        "width": 4,
+        "collapse": false
+    },
+    {
+        "id": "1ce3e61f.3af44a",
+        "type": "ui_group",
+        "z": "",
+        "name": "SCUTTLE",
+        "tab": "e46ad525.d27528",
+        "order": 1,
+        "disp": false,
+        "width": 14,
+        "collapse": false
+    },
+    {
+        "id": "e46ad525.d27528",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Fusion",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
