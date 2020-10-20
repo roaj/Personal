@@ -38,10 +38,10 @@ if __name__ == "__main__":
     while rcpy.get_state() != rcpy.EXITING:     # exit loop if rcpy not ready
         if rcpy.get_state() == rcpy.RUNNING:    # execute loop when rcpy is ready
             print("motors.py: driving fwd")
-            MotorL(0.6)                         # gentle speed for testing program. 0.3 PWM may not spin the wheels.
-            MotorR(0.6)
+            MotorL(0.8)                         # gentle speed for testing program. 0.3 PWM may not spin the wheels.
+            MotorR(0.8)
             time.sleep(4)                       # run fwd for 4 seconds
             print("motors.py: driving reverse")
-            MotorL(-0.6)
-            MotorR(-0.6)
+            MotorL(-0.8)
+            MotorR(-0.8)
             time.sleep(4)                       # run reverse for 4 seconds

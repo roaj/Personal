@@ -6,7 +6,7 @@
 import L2_kinematics as kin
 import L2_log as log
 import Lab3_gamepadControl as gp
-import L2_heading as heading
+# import L2_heading as heading
 import numpy as np
 import L1_adc as adc
 # Import External programs
@@ -19,16 +19,16 @@ def mainTask():
   gp.manual_nav()
   pd = kin.getPdCurrent()
   frame = kin.getMotion()
-  headingAngle = headingVal()
+  # headingAngle = headingVal()
   voltageJack = adc.getDcJack()
   ##/tmp/
   log.tmpFile(pd[0],"pdl.txt")
   log.tmpFile(pd[1],"pdr.txt")
   log.tmpFile(frame[0],"xdot.txt")
   log.tmpFile(frame[1],"tdot.txt")
-  log.tmpFile(headingAngle,"heading.txt")
+  # log.tmpFile(headingAngle,"heading.txt")
   log.tmpFile(voltageJack,"vjack.txt")
-  headindLetter()
+  # headindLetter()
   
   
 def headingVal():
