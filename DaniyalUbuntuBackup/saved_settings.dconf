@@ -1,0 +1,382 @@
+[apps/update-manager]
+first-run=false
+launch-count=4
+launch-time=int64 1602609218
+show-details=true
+window-height=400
+window-width=372
+
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/nautilus/window-state/'
+saved-view='/org/gnome/nautilus/window-state/'
+window-height=500
+window-is-maximized=false
+window-width=540
+
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1601930092
+
+[desktop/ibus/general]
+preload-engines=['xkb:us::eng']
+version='1.5.22'
+
+[org/gnome/calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='advanced'
+number-format='automatic'
+refresh-interval=604800
+show-thousands=false
+show-zeroes=false
+source-currency='DZD'
+source-units='degree'
+target-currency='DZD'
+target-units='radian'
+window-position=(71, 54)
+word-size=64
+
+[org/gnome/cheese]
+burst-delay=1000
+camera='Integrated_Webcam_HD: Integrate'
+photo-x-resolution=640
+photo-y-resolution=480
+video-x-resolution=640
+video-y-resolution=480
+
+[org/gnome/control-center]
+last-panel='printers'
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/daniyal/.local/share/backgrounds/2020-09-26-19-34-38-AS10-34-5042.png'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us')]
+xkb-options=@as []
+
+[org/gnome/desktop/interface]
+clock-format='12h'
+clock-show-seconds=true
+clock-show-weekday=true
+enable-animations=false
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Plata-Noir-Compact'
+icon-theme='Papirus-Dark'
+show-battery-percentage=true
+text-scaling-factor=0.75
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-nautilus', 'firefox', 'chromium-chromium', 'gnome-printers-panel', 'nextcloud', 'discord', 'org-gnome-gedit', 'gnome-power-panel', 'org-kde-kdeconnect-daemon', 'snap-store-ubuntu-software-local-file', 'xdg-desktop-portal-gtk', 'org-gnome-terminal', 'update-manager', 'code-code', 'gnome-network-panel', 'org-gnome-eog', 'nomachine-status', 'org-gnome-extensions-desktop', 'spotify-spotify', 'wireshark', 'gnome-control-center', 'system-config-printer']
+show-banners=true
+
+[org/gnome/desktop/notifications/application/chromium-chromium]
+application-id='chromium_chromium.desktop'
+
+[org/gnome/desktop/notifications/application/code-code]
+application-id='code_code.desktop'
+
+[org/gnome/desktop/notifications/application/discord]
+application-id='discord.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-printers-panel]
+application-id='gnome-printers-panel.desktop'
+
+[org/gnome/desktop/notifications/application/nextcloud]
+application-id='nextcloud.desktop'
+
+[org/gnome/desktop/notifications/application/nomachine-status]
+application-id='NoMachine-status.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-eog]
+application-id='org.gnome.eog.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-extensions-desktop]
+application-id='org.gnome.Extensions.desktop.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-gedit]
+application-id='org.gnome.gedit.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
+[org/gnome/desktop/notifications/application/org-kde-kdeconnect-daemon]
+application-id='org.kde.kdeconnect.daemon.desktop'
+
+[org/gnome/desktop/notifications/application/snap-store-ubuntu-software-local-file]
+application-id='snap-store_ubuntu-software-local-file.desktop'
+
+[org/gnome/desktop/notifications/application/spotify-spotify]
+application-id='spotify_spotify.desktop'
+
+[org/gnome/desktop/notifications/application/system-config-printer]
+application-id='system-config-printer.desktop'
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
+
+[org/gnome/desktop/notifications/application/wireshark]
+application-id='wireshark.desktop'
+
+[org/gnome/desktop/notifications/application/xdg-desktop-portal-gtk]
+application-id='xdg-desktop-portal-gtk.desktop'
+
+[org/gnome/desktop/peripherals/keyboard]
+numlock-state=true
+
+[org/gnome/desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/privacy]
+disable-microphone=false
+remember-recent-files=false
+report-technical-problems=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+lock-delay=uint32 0
+picture-options='zoom'
+picture-uri='file:///home/daniyal/.local/share/backgrounds/2020-09-26-19-34-38-AS10-34-5042.png'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 300
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=true
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/evince]
+document-directory=@ms 'file:///home/daniyal/Downloads'
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=false
+dual-page-odd-left=true
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=false
+show-sidebar=true
+sidebar-page='thumbnails'
+sidebar-size=132
+sizing-mode='automatic'
+window-ratio=(0.98202614379084963, 0.75631313131313127)
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/file-roller/dialogs/extract]
+recreate-folders=true
+skip-newer=false
+
+[org/gnome/file-roller/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='name'
+sort-type='ascending'
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=480
+window-width=600
+
+[org/gnome/gedit/plugins]
+active-plugins=['modelines', 'filebrowser', 'docinfo', 'time', 'spell']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/daniyal/Documents/Personal/Todo'
+
+[org/gnome/gedit/preferences/editor]
+editor-font='Monospace Bold 11'
+highlight-current-line=true
+scheme='tango'
+use-default-font=false
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/print]
+print-font-body-pango='Monospace 9'
+print-font-header-pango='Sans 11'
+print-font-numbers-pango='Sans 8'
+print-header=false
+print-line-numbers=uint32 1
+print-syntax-highlighting=true
+print-wrap-mode='none'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/history-entry]
+replace-with-entry=['SocketThread', 'range']
+search-for-entry=['ExampleApp', 'CloneThread', 'pyowm', 'decoApp', 'xrange']
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(939, 1021)
+state=87168
+
+[org/gnome/gnome-screenshot]
+border-effect='none'
+delay=0
+include-border=true
+include-pointer=false
+last-save-directory='file:///home/daniyal/Pictures'
+
+[org/gnome/nautilus/compression]
+default-compression-format='tar.xz'
+
+[org/gnome/nautilus/list-view]
+default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
+default-visible-columns=['name', 'size', 'date_modified', 'starred']
+use-tree-view=true
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+executable-text-activation='ask'
+search-filter-time-type='last_modified'
+search-view='list-view'
+show-create-link=true
+show-delete-permanently=true
+
+[org/gnome/nautilus/window-state]
+initial-size=(911, 577)
+maximized=false
+
+[org/gnome/nm-applet/eap/ef424445-d528-459f-8e4d-101a5839b747]
+ignore-ca-cert=true
+ignore-phase2-ca-cert=false
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[org/gnome/shell]
+command-history=['gedit']
+disabled-extensions=@as []
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'todo.txt@bart.libert.gmail.com']
+favorite-apps=['chromium_chromium.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']
+
+[org/gnome/shell/extensions/TodoTxt]
+donetxt-location='/home/daniyal/Documents/Personal/Todo/done.txt'
+group-by=1
+keep-open-after-new=true
+priorities-markup={'A': (true, 'rgb(204,0,0)', false, false), 'B': (true, 'rgb(245,121,0)', false, false), 'C': (true, 'rgb(237,212,0)', false, false)}
+settings-level=250
+show-contexts-label=true
+show-edit-button=false
+show-open-in-text-editor=true
+show-priority-buttons=true
+show-projects-label=true
+show-status-icon=true
+style-priorities=true
+todotxt-location='/home/daniyal/Documents/Personal/Todo/todo.txt'
+truncate-long-tasks=false
+
+[org/gnome/shell/extensions/dash-to-dock]
+dash-max-icon-size=16
+preferred-monitor=0
+show-mounts=false
+
+[org/gnome/shell/extensions/desktop-icons]
+show-home=false
+show-trash=false
+
+[org/gnome/shell/extensions/user-theme]
+name='Plata-Noir-Compact'
+
+[org/gnome/simple-scan]
+brightness=0
+contrast=0
+document-type='photo'
+paper-height=2794
+paper-width=2159
+photo-dpi=300
+save-directory='/home/daniyal/Documents'
+text-dpi=150
+
+[org/gnome/software]
+check-timestamp=int64 1602329691
+online-updates-timestamp=int64 1600725028
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/terminal/legacy/profiles:]
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'b3d307ab-3375-4dc0-9020-270d34ac6a9f']
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-transparency-percent=2
+palette=['rgb(46,52,54)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']
+use-theme-transparency=false
+use-transparent-background=true
+
+[org/gnome/terminal/legacy/profiles:/:b3d307ab-3375-4dc0-9020-270d34ac6a9f]
+font='Monospace 19'
+use-system-font=false
+visible-name='Large_Text'
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.0, 0.59999999999999998, 0.80000000000000004, 1.0), (0.0, 0.60999999999999999, 0.0, 1.0), (0.46282139314869919, 0.46282139314869919, 0.46282139314869919, 1.0), (0.96862745098039216, 0.96862745098039216, 0.96862745098039216, 1.0), (0.18823529411764706, 0.5490196078431373, 0.77647058823529413, 1.0), (0.93725490196078431, 0.93725490196078431, 0.93725490196078431, 1.0)]
+selected-color=(true, 0.92941176470588238, 0.83137254901960789, 0.0, 1.0)
+
+[org/gtk/settings/file-chooser]
+clock-format='12h'
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=169
+sort-column='modified'
+sort-directories-first=true
+sort-order='descending'
+type-format='category'
+window-position=(2542, 278)
+window-size=(718, 517)
