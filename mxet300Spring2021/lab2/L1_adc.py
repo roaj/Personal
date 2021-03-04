@@ -1,54 +1,43 @@
-# This program accesses info from the Blue's onboard sensor, MPU9250
-# It reads temp, accelerometer, gyro, and magnetometer data from the sensor.
-# Uses RCPY library.  See guitar.ucsd.edu/rcpy/rcpy.pdf for documentation
+# This code retrieves information from the onboard analog-to-digital converter
+# on the beaglebone blue.
+# Uses rcpy library.  Documentation at guitar.ucsd.edu/rcpy/rcpy.pdf
 
-# Import external librarires
-import time                                     # for time.sleep function
-import numpy as np                              # for working with matrices
-import rcpy                                     # import rcpy library (this automatically initializes robotics cape)
-import rcpy.mpu9250 as mpu9250                  # for mpu sensor functions
-
-rcpy.set_state(rcpy.RUNNING)                    # set state to rcpy.RUNNING
-mpu9250.initialize(enable_magnetometer=True)    # by default, mag is not initialized.
-mpu9250.initialize()                            # initialize the sensor
+# Import External Libraries
+import time                 # for handing timing
+import numpy as np          # for handling arrays
+import rcpy                 # for driving peripherals on beaglebone blue
+from rcpy._adc import *     # import functions in rcpy adc
 
 
-def getAccel():
-    axes = mpu9250.read_accel_data()            # returns x, y, z acceleration (m/s^2)
-    axes = np.round(axes, 3)                    # round values to 3 decimals
-    return(axes)
+# Define Relevant Functions
+# get readings from all channels of onboard ADC.
+def getAdc(channel=None):
+    if channel is None:
+        A0 = round(get_voltage(0), 3)                       # ADC channel 0
+        A1 = round(get_voltage(1), 3)                       # ADC channel 1
+        A2 = round(get_voltage(2), 3)                       # ADC channel 2
+        A3 = round(get_voltage(3), 3)                       # ADC channel 3
+        A4 = round(get_voltage(4), 3)                       # ADC channel 4
+        A5 = round(get_voltage(5), 3)                       # DC Input (unscaled)
+        A6 = round(get_voltage(6), 3)                       # Lipo battery input (unscaled)
+        adcData = np.array([A0, A1, A2, A3, A4, A5, A6])
+    elif channel >= 0 and channel <= 6:
+        adcData = round(get_voltage(channel), 3)            # ADC channel specified by user
+    elif channel < 0 and channel > 6:
+        print("ERROR: Invalid ADC Channel!")
+        adcData = None
+    return(adcData)
 
 
-def getAll():
-    data = mpu9250.read()                       # this command returns a string with many parameters.
-    return(data)
-
-
-def getTemp():
-    temp = mpu9250.read_imu_temp()              # returns just temperature (deg C)
-    return(temp)
-
-
-def getMag():
-    mag = mpu9250.read_mag_data()               # gets x,y,z mag values (microtesla)
-    mag = np.round(mag, 1)                      # round values to 1 decimal
-    return(mag)
-
-
-def getGyro():
-    gyro = mpu9250.read_gyro_data()             # returns 3 axes gyro data (deg/s)
-    gyro = np.round(gyro, 2)
-    return(gyro)
+# return the voltage measured at the barrel plug
+def getDcJack():
+    voltage = round(get_dc_jack_voltage(), 2)
+    return (voltage)
 
 
 if __name__ == "__main__":
     while True:
-        if rcpy.get_state() == rcpy.RUNNING:    # verify the rcpy package is running
-            myTemp = getTemp()
-            myMag = getMag()
-            myGyro = getGyro()
-            myAccel = getAccel()
-
-            print("mag (μT):", myMag, "\t accel(m/s^2):", myAccel)
-
-        time.sleep(0.2)
+        adcData = getAdc()
+        dcJack = getDcJack()
+        print("adc (v):", adcData, "\t battery (v):", dcJack)
+        time.sleep(0.5)
