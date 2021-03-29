@@ -1,26 +1,22 @@
-# This is udpserver.py file
 import socket                                         
+import task3 as encryption
 
-# create a UDP socket object
-serversocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-
-# Get local machine address
+socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
 ip = "localhost"                          
+port = 9999 
+serverAddress = (ip, port)                                          
+socket.bind(serverAddress)                        
+cipherShift = 5
+try:
+   while True:  
+         data, addr = socket.recvfrom(1024)
+         deCipherText = encryption.deCipher(data.decode(),cipherShift)
+         replyMessage = "roger"
+         print("Message From Client = ",deCipherText)
+         reply = encryption.cipher(replyMessage,cipherShift)
+         sent = socket.sendto(reply.encode(),addr)
+except KeyboardInterrupt:
+        print('Interrupted')
+        socket.close
 
-# Set port number for this server
-port = 9999                                           
 
-# Bind to the port
-serversocket.bind((ip, port))                                  
-
-while True:  
-   print("Waiting to receive message on port " + str(port) + '\n')
-   
-   # Receive the data of 1024 bytes maximum. Need to use recvfrom because there is not connecction
-   data, addr = serversocket.recvfrom(1024)
-   print("received: " + data.decode())
-
-   print("send a reply")    
-   msg = input("->")
-   sent = serversocket.sendto(msg.encode(), addr)
-   print('sent ' + str(sent))

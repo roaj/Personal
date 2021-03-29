@@ -1,35 +1,21 @@
-# This is udpclient.py file
-
-#Import socket programming module
 import socket
+import task3 as encryption
 
-# Create a socket object
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-
-# Set destination port
+socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+ip = "localhost"
 port = 9999
+serverAddr = (ip, port)
+cipherShift = 5 
+try:
+    message2send = input("Message To Server = ")
+    cipherMessage2send = encryption.cipher(message2send,cipherShift)
+    socket.sendto(cipherMessage2send.encode(), serverAddr)
+    print("Encrypted Message To Server = ",cipherMessage2send)
+    recievedMessage, addr = socket.recvfrom(1024)
+    print("Message From Server = ",encryption.deCipher(recievedMessage.decode(),cipherShift))
+except:
+    print("error")
+socket.close()
 
-# Include the server Address 
-serverAddr = ('localhost', port)
+    
 
-print("Type your message below")
-message = input("->")
-s.sendto(message.encode(), serverAddr)
-
-# Receive no more than 1024 bytes
-msg, addr = s.recvfrom(1024)
-print("received: " + msg.decode())
-
-# Send message. The string needs to be converted to bytes.
-while (msg.decode() != "bye" ):
-
-    print("Type your message below")
-    message = input("->")
-    s.sendto(message.encode(), serverAddr)
-
-    # Receive no more than 1024 bytes
-    msg, addr = s.recvfrom(1024)
-    print("received: " + msg.decode())
-
-# Close connection
-s.close()
