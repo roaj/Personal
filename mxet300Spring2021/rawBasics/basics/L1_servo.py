@@ -40,7 +40,7 @@ if __name__ == "__main__":
 		while rcpy.get_state() != rcpy.EXITING: 	# keep running
 				print("move 1.5")
 				move1(1.5)	# Set servo duty (1.5 has no units, see library for details)
-				time.sleep(2)
-				print("move -1.5")
-				move1(-1.5)
-				time.sleep(2)
+				# time.sleep(2)
+				# print("move -1.5")
+				# move1(-1.5)
+				# time.sleep(2)
