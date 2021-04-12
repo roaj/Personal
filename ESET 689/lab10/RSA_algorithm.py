@@ -1,14 +1,14 @@
 import math
-import encryptionBank as netlib
+import encryptionBank as bank
 
 plainText = "Bluebonnets are beautiful!"
 
-rsaPubKey = netlib.rsaPublicKey()
+rsaPubKey = bank.rsaPublicKey()
 print("public key = ",rsaPubKey)
-rsaPrivKey = netlib.rsaPrivateKey()
+rsaPrivKey = bank.rsaPrivateKey()
 print("Private Key = ",rsaPrivKey)
-cipherText = netlib.rsaEncrypt(plainText, rsaPubKey)
-decyptText = netlib.rsaDecrypt(cipherText, rsaPrivKey)
+cipherText = bank.rsaEncrypt(plainText, rsaPubKey)
+decyptText = bank.rsaDecrypt(cipherText, rsaPrivKey)
 print("Plaintext:\t" , plainText)
 print("Ciphertext:\t" , cipherText)
 print("Decrypted Text:\t" , decyptText)
