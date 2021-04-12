@@ -35,3 +35,50 @@ def polyDecrypt(ciphertext,keyword="gkds"):
     # print(plainText)
     return plainText
 
+# RSA p,q,e,d Variable Set
+def rsaVariables():
+    p = 47
+    q = 71
+    e = 97
+    d = 1693
+    n = p * q
+    phiN = (p-1) * (q-1)
+    rsaValues = [p,q,e,d,n,phiN]
+    return rsaValues
+
+# RSA Public Key Generation
+def rsaPublicKey():
+    rsaValues = rsaVariables()
+    e = rsaValues[2]
+    n = rsaValues[4]
+    rsaPubKey = [e,n]
+    return rsaPubKey
+
+# RSA Private Key Generation
+def rsaPrivateKey():
+    rsaValues = rsaVariables()
+    d = rsaValues[3]
+    n = rsaValues[4]
+    rsaPrivKey = [d,n]
+    return rsaPrivKey
+
+# RSA Encryption Algorithm
+def rsaEncrypt(plainText,rsapublicKey):
+    e = rsapublicKey[0]
+    n = rsapublicKey[1]
+    cipherText = [0] * len(plainText)
+    i = 0
+    for letter in plainText:
+         cipherText[i] = (ord(letter) ** e)%n
+         i = i + 1
+    return cipherText
+
+# RSA Decryption Algorithm
+def rsaDecrypt(cipherText,rsaPrivateKey):
+    d = rsaPrivateKey[0]
+    n = rsaPrivateKey[1]
+    plainText = ""
+    for letter in cipherText:
+        plainValue = (letter ** d)%n
+        plainText = plainText + chr(plainValue)
+    return plainText
