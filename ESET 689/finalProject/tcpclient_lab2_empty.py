@@ -1,29 +1,22 @@
-# This is tcpclient.py file
-
 import socket
+import time
 
-# create a socket object
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-
-# get local machine name
-#host = socket.gethostname()
 host = "localhost"
-
-# set destination port
 port = 12000
-
-# connection to hostname on the port.
 clientsocket.connect((host, port))
+print("Evil Corp New Employee Form","\n","(1) New Registration","\n","(2) Donate Blood")
+userInput = input("Selection : ")
 
-# send message. The string needs to be converted to bytes.
-message = 'Hello!'
-clientsocket.send(message.encode())
-print("sent: " + message) 
-
-# Receive no more than 1024 bytes
-msg = clientsocket.recv(1024)
-print("received: " + msg.decode())
+while userInput == "1":
+    msg = clientsocket.recv(1024)
+    print("what is your = " + msg.decode())
+    if msg.decode() == "Done":
+        break
+    answer = input("answer = ")
+    clientsocket.send(answer.encode())
 
 # Close connection
 clientsocket.close()
+
 
