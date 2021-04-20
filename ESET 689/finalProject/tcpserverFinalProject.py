@@ -26,6 +26,7 @@ while True:
       print(EmployeeInfo.values())
       
    clientsocket.send("Done".encode())
+   print("\n","Recorded Information","\n",EmployeeInfo)
    break
 
 
