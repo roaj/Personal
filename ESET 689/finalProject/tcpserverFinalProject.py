@@ -1,5 +1,6 @@
 import socket                                         
 import time
+import json
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 host = "localhost"
@@ -12,22 +13,22 @@ EmployeeInfo = {"Last Name": None,
                "Major": None,
                "Hometown":None,
                "Username": None,
-               "Password":None}
+               "Password":None,
+               "NULL":None}
 
-while True:
-   # wait for a connection
-   clientsocket,addr = serversocket.accept()
-   print("Connected to ---> "+addr[0])
-   time.sleep(1)
-   for key in EmployeeInfo.keys():
-      clientsocket.send(key.encode())
-      data = clientsocket.recv(1024)
-      EmployeeInfo[key] = data.decode()
-      print(EmployeeInfo.values())
-      
-   clientsocket.send("Done".encode())
-   print("\n","Recorded Information","\n",EmployeeInfo)
-   break
+# wait for a connection
 
+
+clientsocket,addr = serversocket.accept() # blocking function
+
+print("Connected to ---> "+addr[0])
+
+for key in EmployeeInfo.keys():
+   clientsocket.send(key.encode())
+   data = clientsocket.recv(1024) # blocking function
+   EmployeeInfo[key] = data.decode()
+
+with open("/home/jorge/exploring/ESET 689/finalProject/temp.txt","+w") as fileOut:
+   json.dump(EmployeeInfo,fileOut,indent=4)
 
 clientsocket.close()

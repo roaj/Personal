@@ -2,6 +2,8 @@ import socket
 import task3 as encryption # import task 3 code 
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+socket.settimeout(1)
+
 ip = "localhost"                          
 port = 9999 
 serverAddress = (ip, port)                                          

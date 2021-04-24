@@ -4,11 +4,11 @@ import math
 ##Private key = super increasing knapsack algorithm
 ##public Key = general knapsack 
 
-superIncreasingNS = [2,7,11,21,42,89,180,354] #private key 
+superIncreasingNS = [2,3,6,13,27,52] #private key 
 normalNS = [] #public key 
 
-m = 881 #modulus m should be greater than sum(superIncreasingNS)
-n = 588 #multiplier should have no factor in common with modulus
+m = 105 #modulus m should be greater than sum(superIncreasingNS)
+n = 31 #multiplier should have no factor in common with modulus
 
 if math.gcd(m,n) != 1:
     raise Exception("n and m are not co-prime")
@@ -45,12 +45,35 @@ def encryptKnapsack(message,publicKey):
     return cypherText
 
 def decrypKnapsack(cypherText,privateKey):
-    pass
+    print("\n\n","###DECRYPTION###")
+    # pass
+    modularInverse = pow(n,-1,m)
+    print("modularInverse = ",modularInverse, "modulus = ",m)
+    reverseKey = privateKey[::-1]
+    # reverseKey = list(reversed(privateKey))
+    print("reverse key = ",reverseKey)
+    sum =[]
+    for element in cypherText:
+        sum.append(element*modularInverse%m) 
+    print("sum = ",sum)
+
+    for sumElement in sum :
+        cypherElement = [] 
+        temp = sumElement
+        for key in reverseKey:
+            if (temp >= key):
+                print("0")
+            elif (temp < key ):
+                print("1")
+
 
 
 key = getPKey()
 cypherText = encryptKnapsack("Joe",key)
-decrypKnapsack(cypherText,superIncreasingNS)
+
+FakecypherText = [174,280,333]
+decrypKnapsack(FakecypherText,superIncreasingNS)
+
 
 # print(" Private key = ",superIncreasingNS,"\n","Public Key = ",normalNS,"\n")
 
