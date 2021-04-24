@@ -4,18 +4,8 @@ import math
 ##Private key = super increasing knapsack algorithm
 ##public Key = general knapsack 
 
-superIncreasingNS = [2,3,6,13,27,52,105,209] #private key 
-normalNS = [] #public key
-
-m = 419 #modulus m should be greater than sum(superIncreasingNS)
-n = 253 #multiplier should have no factor in common with modulus
-
-if math.gcd(m,n) != 1:
-    raise Exception("n and m are not co-prime")
-elif m < sum(superIncreasingNS):
-    raise Exception("select a larger multiplier(n)") 
-    
-def getPKey():
+def getPKey(superIncreasingNS,m,n):
+    normalNS = []
     for weight in superIncreasingNS:
         key = (weight * n) % m
         normalNS.append(key)
@@ -43,7 +33,7 @@ def encryptKnapsack(message,publicKey):
     # print("Cyphertext = ",cypherText)
     return cypherText
 
-def decrypKnapsack(cypherText,privateKey):
+def decrypKnapsack(cypherText,privateKey,m,n):
     modularInverse = pow(n,-1,m)
     # print("modularInverse = ",modularInverse, "modulus = ",m)
     reverseKey = privateKey[::-1]
